@@ -3,6 +3,7 @@ const router = express.Router();
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 const userRoutes = require('./user');
 const authRoutes = require('./auth');
+const kubiosRoutes = require('./kubios');
 const Story = require('../models/StoryModel');
 const UserController = require('../controllers/userController')
 const AppointmentController = require('../controllers/appointmentController')
@@ -29,6 +30,7 @@ router.get('/login', ensureGuest, (req, res) => {
 });
 router.use('/user', userRoutes);
 router.use('/auth', authRoutes);
+router.use('/', kubiosRoutes);
 
 // @desc    Dashboard
 // @route   GET /dashboard
